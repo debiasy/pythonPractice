@@ -29,19 +29,25 @@ class Content:
 	def __repr__(self):
 		return repr((self.username, self.groupname, self.userid, self.homepath))
 
-lineList = []
+	
+def sortByGroup(filePath):
+	lineList = []
 
-with open('oldFile.txt', 'r') as old:
-	for line in old:
-		content = Content(line.split())
-		lineList.append(content)
+	with open(filePath, 'r') as old:
+		for line in old:
+			content = Content(line.split())
+			lineList.append(content)
 
-sortedList = sorted(lineList, key=attrgetter('groupname', 'userid'))
+	sortedList = sorted(lineList, key=attrgetter('groupname', 'userid'))
 
-with open('newFile.txt', 'w') as new:
-	for i in sortedList:
-		new.write(i)
+	with open('newFile.txt', 'w') as new:
+		for i in sortedList:
+			new.write(i)
 
 
-print(new.read())
+	print(new.read())
+	
+if __name__ == "__main__":
+	filePath = input('Please enter the file path you would like to sort: ')
+	sortByGoup(filePath)
 
