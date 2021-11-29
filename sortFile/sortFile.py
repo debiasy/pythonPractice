@@ -27,8 +27,7 @@ def sortByGroup(oldFile):
 
 
 	print(new.read())
-
-oldFile = ''	
+	
 oldFile = input('Please enter the file you would like to sort: ')
 print(oldFile)
 sortByGoup(oldFile)
