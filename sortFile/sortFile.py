@@ -1,24 +1,5 @@
-Input: a file with following content: username groupname userid homepath
-Output: a new file sorted by groupname alphabetically
-example:
-input:
-'''
-user1 group1 001 /usr/bin/
-user2 group3 002 /usr/bin/
-user3 group2 003 /usr/bin/
-user4 group1 004 /usr/bin/
-user5 group2 005 /usr/bin/
-'''
-output:
-'''
-user1 group1 001 /usr/bin/
-user4 group1 004 /usr/bin/
-user3 group2 003 /usr/bin/
-user5 group2 005 /usr/bin/
-user2 group3 002 /usr/bin/
-'''
- 
-Note: there's a command line to do this "sort -t' ' -k2 filename", but we want you to do this in programming languages
+import os
+
 
 class Content:
 	def __init__(self, username, groupname, userid, homepath):
@@ -30,10 +11,10 @@ class Content:
 		return repr((self.username, self.groupname, self.userid, self.homepath))
 
 	
-def sortByGroup(filePath):
+def sortByGroup(oldFile):
 	lineList = []
 
-	with open(filePath, 'r') as old:
+	with open(oldFile, 'r') as old:
 		for line in old:
 			content = Content(line.split())
 			lineList.append(content)
@@ -46,8 +27,9 @@ def sortByGroup(filePath):
 
 
 	print(new.read())
-	
-if __name__ == "__main__":
-	filePath = input('Please enter the file path you would like to sort: ')
-	sortByGoup(filePath)
+
+oldFile = ''	
+oldFile = input('Please enter the file you would like to sort: ')
+print(oldFile)
+sortByGoup(oldFile)
 
