@@ -5,8 +5,7 @@ def topSites(file):
 	with open(file,'r') as f:
 		for line in f:
 			tempList.append(line.split())
-
-	del templist[0]
+			del templist[0]
 
 	webDict = {}
 
@@ -16,7 +15,7 @@ def topSites(file):
 		else:
 			webDict[site] = 1
 
-	sortSites = sorted(webDict.items(), key=lambda x: x[1])
+	sortSites = sorted(webDict.items(), key=lambda x: x[1], reverse=True)
 
 	counter = 0
 
