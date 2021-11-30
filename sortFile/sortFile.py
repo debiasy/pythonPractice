@@ -1,6 +1,3 @@
-import os
-
-
 class Content:
 	def __init__(self, username, groupname, userid, homepath):
 		self.username = username
